@@ -1,2 +1,2 @@
 <?xml version="1.0" encoding="utf-8"?>
-<merger version="3"><dataSet config="main"><source path="C:\Users\Computer\AndroidStudioProjects\edus_versuch\android\app\src\main\shaders"/></dataSet><dataSet config="debug"><source path="C:\Users\Computer\AndroidStudioProjects\edus_versuch\android\app\src\debug\shaders"/></dataSet></merger>
+<merger version="3"><dataSet config="main"><source path="C:\Users\Computer\AndroidStudioProjects\calc_mobile_development\android\app\src\main\shaders"/></dataSet><dataSet config="debug"><source path="C:\Users\Computer\AndroidStudioProjects\calc_mobile_development\android\app\src\debug\shaders"/></dataSet></merger>
