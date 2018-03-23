@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\Users\\Computer\\AndroidStudioProjects\\calc_mobile_development\\build\\app\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values\\values.xml",
+            "outputFile": "C:\\Users\\Computer\\AndroidStudioProjects\\edus_versuch\\build\\app\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values\\values.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\Computer\\AndroidStudioProjects\\calc_mobile_development\\android\\app\\src\\main\\res\\values\\styles.xml",
+                    "source": "C:\\Users\\Computer\\AndroidStudioProjects\\edus_versuch\\android\\app\\src\\main\\res\\values\\styles.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
