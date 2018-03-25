@@ -1,5 +1,5 @@
-name: edus_versuch
-description: A new Flutter application.
+name: untitled
+description: A new Flutter project.
 
 dependencies:
   flutter:
@@ -8,6 +8,10 @@ dependencies:
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^0.1.0
+  path_provider: "^0.4.0"
+  audioplayer: "^0.4.0"
+  math_expressions: "^0.3.0"
+
 
 dev_dependencies:
   flutter_test:
