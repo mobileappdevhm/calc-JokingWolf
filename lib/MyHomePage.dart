@@ -12,42 +12,53 @@ class MyHomePage extends StatefulWidget {
 }
 
 class MyHomePageState extends State<MyHomePage> {
-  String gleichung = "0";
-  var ergebnis = 0.0;
+  String equation = "0";
+  double result = 0.0;
 
-  var buttonWidth = 50.0, buttonHeight = 50.0;
+  var buttonWidth = 60.0, buttonHeight = 60.0;
 
   var notFirstInput = false, operatorSet = false;
 
   void enterNumber(String sign) {
     setState((){
       if (!notFirstInput) {
-        gleichung = sign;
+        equation = sign;
         notFirstInput = true;
       } else {
-        gleichung += sign;
+        equation += sign;
       }
+      operatorSet = false;
     });
   }
 
   void enterOperator(String operator) {
     setState((){
       if (operatorSet) {
-        gleichung = gleichung.substring(0, gleichung.length - 1);
-        gleichung += operator;
+        equation = equation.substring(0, equation.length - 1);
+        equation += operator;
       } else {
-        gleichung += operator;
+        equation += operator;
         operatorSet = true;
       }
       // gleichung += operator;
     });
   }
 
+  void enterResult(double result) {
+    setState(() {
+      if (operatorSet) {
+        equation += result.toString();
+        operatorSet = false;
+      }
+    });
+  }
+
   void clear(bool all) {
     setState((){
-      if (all)
-        ergebnis = 0.0;
-      gleichung = "0";
+      if (all) {
+        result = 0.0;
+      }
+      equation = "0";
       notFirstInput = false;
       operatorSet = false;
     });
@@ -55,10 +66,10 @@ class MyHomePageState extends State<MyHomePage> {
 
   void toggle() {
     setState((){
-      if (gleichung.startsWith("-")) {
-        gleichung = gleichung.substring(1);
+      if (equation.startsWith("-")) {
+        equation = equation.substring(1);
       } else {
-        gleichung = "-" + gleichung;
+        equation = "-" + equation;
       }
     });
   }
@@ -66,8 +77,8 @@ class MyHomePageState extends State<MyHomePage> {
   void calculate() {
     setState((){
       Parser p = new Parser();
-      Expression exp = p.parse(gleichung);
-      ergebnis = exp.evaluate(EvaluationType.REAL,new ContextModel());
+      Expression exp = p.parse(equation);
+      result = exp.evaluate(EvaluationType.REAL,new ContextModel());
     });
   }
 
@@ -79,10 +90,13 @@ class MyHomePageState extends State<MyHomePage> {
       ),
       body: new Center(
         child: new Column(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            new Text("Gleichung: $gleichung", style: new TextStyle(fontSize: 20.0)),
-            new Text("Ergebnis: $ergebnis", style: new TextStyle(fontSize: 20.0)),
+            new Text("Gleichung: $equation", style: new TextStyle(fontSize: 20.0)),
+            new Padding(padding: new EdgeInsets.only(top: 50.0)),
+            new Text("Ergebnis: $result", style: new TextStyle(fontSize: 20.0)),
+            new Padding(padding: new EdgeInsets.only(top: 50.0)),
             new Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
@@ -200,6 +214,7 @@ class MyHomePageState extends State<MyHomePage> {
               ],
             ),
             new Row(
+              // crossAxisAlignment: CrossAxisAlignment.stretch,
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 new MaterialButton(
@@ -215,10 +230,10 @@ class MyHomePageState extends State<MyHomePage> {
                   onPressed: () => clear(true),
                 ),
                 new MaterialButton(
-                  child: new Text("E",style: new TextStyle(color: Colors.red)),
+                  child: new Text("E"),
                   height: buttonHeight,
                   minWidth: buttonWidth,
-                  onPressed: () => enterNumber(ergebnis.toString())
+                  onPressed: () => enterResult(result)
                 ),
                 new MaterialButton(
                   color: Colors.blue,
