@@ -1,8 +1,5 @@
-# edus_versuch
+# my calculator app
 
-A new Flutter application.
+A new flutter application for the class mobile develpoment.
 
-## Getting Started
-
-For help getting started with Flutter, view our online
-[documentation](https://flutter.io/).
+## Version 1.0
